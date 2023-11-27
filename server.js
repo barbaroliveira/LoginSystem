@@ -17,7 +17,7 @@ app.get('/login', (req, res) => {
 })
 
 app.post('/login', (req, res) => {
-    //finish this code when the login form is complete
+    
 })
 
 app.get('/register', (req, res) => {
@@ -39,6 +39,7 @@ app.post('/register', async(req, res) => {
     } catch {
         res.redirect('/register')
     }
+    console.log(users)
 })
 
 app.listen(3000)
