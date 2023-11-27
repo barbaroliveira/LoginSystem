@@ -8,6 +8,7 @@ const bcrypt = require('bcrypt')
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
+const methodOverride = require('method-override')
 
 const initializePassport = require('./passport-config')
 initializePassport(
@@ -28,6 +29,7 @@ app.use(session({
 }))
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(methodOverride('_method'))
 
 //ao utilizar a função, só conseguimos aceder a informação se tivermos autenticados
 app.get('/',checkAutenticated, (req, res) => {
@@ -67,7 +69,7 @@ app.post('/register',checkNotAuthenticated, async(req, res) => {
 
 app.delete('/logout', (req, res) => {
     req.logOut()
-    req.redirect('/login')
+    res.redirect('/login')
 })
 
 //verifica se esta autenticado
