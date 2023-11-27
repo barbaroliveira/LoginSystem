@@ -39,7 +39,6 @@ app.post('/register', async(req, res) => {
     } catch {
         res.redirect('/register')
     }
-    console.log(users)
 })
 
 app.listen(3000)
