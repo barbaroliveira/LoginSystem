@@ -1,7 +1,13 @@
 const express = require('express')
 const app = express()
 const bcrypt = require('bcrypt')
-const { redirect } = require('react-router-dom')
+const passport = require('passport')
+
+const initializePassport = require('./passport-config')
+initializePassport(
+    passport,
+    email => users.find(user => user.email === email)
+)
 
 const users = []
 
