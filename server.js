@@ -15,4 +15,8 @@ app.get('/register', (req, res) => {
     res.render('register.ejs')
 })
 
+app.post('/register', (req, res) => {
+    //finish this code when the form is complete
+})
+
 app.listen(3000)
